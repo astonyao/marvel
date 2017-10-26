@@ -7,7 +7,7 @@ import CharacterInfo from './components/characterInfo'
 import WrapperContainer from './components/wrapperContainer'
 
 class App extends Component {
-  constructor(props) {
+  constructor(props) { 
     super(props);
     this.state = {
       count: '',
@@ -48,7 +48,7 @@ class App extends Component {
     return <div className={s.test}>
       <WrapperContainer wrapperWidth="100%" wrapperHeight="100px" wrapperBgcolor="red">
           <Logo></Logo>
-          <input onChange={this.onChange} placeholder="Search..." />
+          <input onChange={ this.onChange } placeholder="Search..." />
           { loader ? <span> loading </span> : null }
           <WrapperContainer wrapperWidth="35%" wrapperHeight="400px" wrapperOverflow="auto">
             { (data.length == 0 && q !== '') ? <span> Oups </span> : <div>{renderSugg(this.state.data) }</div> }
