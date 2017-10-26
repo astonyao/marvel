@@ -14,6 +14,7 @@ class App extends Component {
       previousQuery: '',
       data: [],
       inputValue: '',
+      timeout: null,
       loader: false
     };
   }
@@ -23,11 +24,20 @@ class App extends Component {
     if(this.state.query != ''){
       this.state.previousQuery = this.state.query
     }
-   
-    setTimeout(() => {
+    var emptyQuery = this.state.inputValue
+    /* Dynamic search result suggestion base on keystroke */
+   if(this.state.timeout != null){
+      clearTimeout(this.state.timeout)
+        this.setState({
+          ...this.state,
+          emptyQuery,
+          data: [],
+          loader: false
+        })
+   }
+    
+    this.state.timeout = setTimeout(() => {
       var query = this.state.inputValue
-      // var query = "thor";
-      // query = event.target.value
       this.setState({
         ...this.state,
         previousQuery: query,
