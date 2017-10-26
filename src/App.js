@@ -7,32 +7,49 @@ import CharacterInfo from './components/characterInfo'
 import WrapperContainer from './components/wrapperContainer'
 
 class App extends Component {
-  constructor(props) { 
+  constructor(props) {
     super(props);
     this.state = {
-      count: '',
-      q: '',
+      query: '',
+      previousQuery: '',
       data: [],
+      inputValue: '',
       loader: false
     };
-    this.onChange = (event) => {
-      const q = event.target.value
+  }
+
+  handleChange = (event) => {
+    this.state.inputValue = event.target.value
+    if(this.state.query != ''){
+      this.state.previousQuery = this.state.query
+    }
+   
+    setTimeout(() => {
+      var query = this.state.inputValue
+      // var query = "thor";
+      // query = event.target.value
       this.setState({
         ...this.state,
+        previousQuery: query,
         loader: true
       })
+      /* Prevent sudden change of input field: eg. Select all and delete */
+      if(this.state.inputValue == ''){
+        query = this.state.previousQuery
+      }
       //TODO manage errors
-      axios.get(`http://localhost:1111/characters?nameStartsWith=${q}`)
+      axios.get(`http://localhost:1111/characters?nameStartsWith=${query}`)
       .then((response) => {
         // console.log(response);
         this.setState({
           ...this.state,
-          q,
+          query,
           data: (response.data.results || []),
           loader: false
         })
       });
-    }
+  }, 500);
+  this.state.previousQuery = this.state.query
   }
 
   render() {
@@ -44,14 +61,16 @@ class App extends Component {
           </WrapperContainer>
       </div>
     )))
-    const { data, q, loader } = this.state
+    const { data, query, loader } = this.state
     return <div className={s.test}>
       <WrapperContainer wrapperWidth="100%" wrapperHeight="100px" wrapperBgcolor="red">
           <Logo></Logo>
-          <input onChange={ this.onChange } placeholder="Search..." />
+          <input onChange={ this.handleChange } 
+                 placeholder="Search..." 
+                 />
           { loader ? <span> loading </span> : null }
           <WrapperContainer wrapperWidth="35%" wrapperHeight="400px" wrapperOverflow="auto">
-            { (data.length == 0 && q !== '') ? <span> Oups </span> : <div>{renderSugg(this.state.data) }</div> }
+            { (data.length == 0 && query !== '') ? <span> Oups </span> : <div>{renderSugg(this.state.data) }</div> }
             </WrapperContainer>
       </WrapperContainer>
      
