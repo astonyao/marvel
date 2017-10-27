@@ -4,8 +4,6 @@ class WrapperContainer extends Component {
     constructor(props){
         super(props);
         this.state = {
-          left: this.props.wrapperLeft,
-          top: this.props.wrapperTop,
           width: this.props.wrapperWidth,
           height: this.props.wrapperHeight,
           position: this.props.wrapperPosition,
@@ -21,12 +19,10 @@ class WrapperContainer extends Component {
 
     render() {
         var wrapperStyle = {
-            left: this.state.left,
-            top: this.state.top,
             width: this.state.width,
             height: this.state.height,
             position: this.state.position,
-            border:"1px solid grey",
+            border:"1px solid hotpink",
             overflow: this.state.overflow,
             backgroundColor: this.state.backgroundColor
         }
