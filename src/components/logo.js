@@ -15,7 +15,10 @@ class Logo extends Component {
 
     render() {
         var logoStyle = {
-            width:"100px"
+            width: "100px",
+            top: "15px",
+            position: "relative",
+            left: "100px"
         }
         
         return(

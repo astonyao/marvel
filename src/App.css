@@ -2,9 +2,6 @@
   text-align: center;
 }
 
-.test {
-  background-color: rgb(182, 50, 50);
-}
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -25,7 +22,27 @@
   font-size: large;
 }
 
+.loaderStyle {
+  position: relative;
+  left:71%;
+  padding-top: 5px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.searchBox {
+  left: 60%;
+  position: absolute;
+  width: 170px;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.suggestResults {
+  left: 60%;
+  position: absolute;
+  top: 120px;
 }

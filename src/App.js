@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import s from './App.css';
+import './App.css';
 import axios from 'axios';
 import Logo from './components/logo'
 import Avatar from './components/avatar'
@@ -72,16 +72,19 @@ class App extends Component {
       </div>
     )))
     const { data, query, loader } = this.state
-    return <div className={s.test}>
+    return <div>
       <WrapperContainer wrapperWidth="100%" wrapperHeight="100px" wrapperBgcolor="red">
           <Logo></Logo>
-          <input onChange={ this.handleChange } 
+          <input className="searchBox" 
+                 onChange={ this.handleChange } 
                  placeholder="Search..." 
                  />
-          { loader ? <span> loading </span> : null }
-          <WrapperContainer wrapperWidth="35%" wrapperHeight="400px" wrapperOverflow="auto">
+          { loader ? <span className="loaderStyle"> loading </span> : null }
+          <WrapperContainer className="suggestResults" wrapperPosition="absolute"
+                            wrapperLeft="60%" wrapperTop="120px"
+                            wrapperWidth="35%" wrapperHeight="400px" wrapperOverflow="auto">
             { (data.length == 0 && query !== '') ? <span> Oups </span> : <div>{renderSugg(this.state.data) }</div> }
-            </WrapperContainer>
+          </WrapperContainer>
       </WrapperContainer>
      
    
