@@ -15,7 +15,11 @@ class Logo extends Component {
 
     render() {
         var logoStyle = {
-            width:"100px"
+            width: "100px",
+            position: "absolute",
+            marginLeft:"15%",
+            top:"50%",
+            transform: "translateY(-50%)"
         }
         
         return(

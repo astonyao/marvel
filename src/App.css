@@ -1,31 +1,95 @@
-.App {
-  text-align: center;
+.searchBox {
+  right: 22%;
+  position: absolute;
+  width: 170px;
+  height: 20px;
+  border-radius: 5px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.test {
-  background-color: rgb(182, 50, 50);
-}
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.suggestResults {
+  right: 20%;
+  position: relative;
+  top: 120px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+/* .loaderStyle {
+  position: absolute;
+  right:24%;
+  padding-top: 5px;
+} */
+
+/* loader and animation */
+.loader {
+  right:24%;
+  top: 50%;
+  font-size: 3px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  position: absolute;
+  text-indent: -9999em;
+  -webkit-animation: load5 1.1s infinite ease;
+  animation: load5 1.1s infinite ease;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+@-webkit-keyframes load5 {
+  0%,
+  100% {
+    box-shadow: 0em -2.6em 0em 0em #080305, 1.8em -1.8em 0 0em rgba(8,3,5, 0.2), 2.5em 0em 0 0em rgba(8,3,5, 0.2), 1.75em 1.75em 0 0em rgba(8,3,5, 0.2), 0em 2.5em 0 0em rgba(8,3,5, 0.2), -1.8em 1.8em 0 0em rgba(8,3,5, 0.2), -2.6em 0em 0 0em rgba(8,3,5, 0.5), -1.8em -1.8em 0 0em rgba(8,3,5, 0.7);
+  }
+  12.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(8,3,5, 0.7), 1.8em -1.8em 0 0em #080305, 2.5em 0em 0 0em rgba(8,3,5, 0.2), 1.75em 1.75em 0 0em rgba(8,3,5, 0.2), 0em 2.5em 0 0em rgba(8,3,5, 0.2), -1.8em 1.8em 0 0em rgba(8,3,5, 0.2), -2.6em 0em 0 0em rgba(8,3,5, 0.2), -1.8em -1.8em 0 0em rgba(8,3,5, 0.5);
+  }
+  25% {
+    box-shadow: 0em -2.6em 0em 0em rgba(8,3,5, 0.5), 1.8em -1.8em 0 0em rgba(8,3,5, 0.7), 2.5em 0em 0 0em #080305, 1.75em 1.75em 0 0em rgba(8,3,5, 0.2), 0em 2.5em 0 0em rgba(8,3,5, 0.2), -1.8em 1.8em 0 0em rgba(8,3,5, 0.2), -2.6em 0em 0 0em rgba(8,3,5, 0.2), -1.8em -1.8em 0 0em rgba(8,3,5, 0.2);
+  }
+  37.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(8,3,5, 0.2), 1.8em -1.8em 0 0em rgba(8,3,5, 0.5), 2.5em 0em 0 0em rgba(8,3,5, 0.7), 1.75em 1.75em 0 0em #080305, 0em 2.5em 0 0em rgba(8,3,5, 0.2), -1.8em 1.8em 0 0em rgba(8,3,5, 0.2), -2.6em 0em 0 0em rgba(8,3,5, 0.2), -1.8em -1.8em 0 0em rgba(8,3,5, 0.2);
+  }
+  50% {
+    box-shadow: 0em -2.6em 0em 0em rgba(8,3,5, 0.2), 1.8em -1.8em 0 0em rgba(8,3,5, 0.2), 2.5em 0em 0 0em rgba(8,3,5, 0.5), 1.75em 1.75em 0 0em rgba(8,3,5, 0.7), 0em 2.5em 0 0em #080305, -1.8em 1.8em 0 0em rgba(8,3,5, 0.2), -2.6em 0em 0 0em rgba(8,3,5, 0.2), -1.8em -1.8em 0 0em rgba(8,3,5, 0.2);
+  }
+  62.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(8,3,5, 0.2), 1.8em -1.8em 0 0em rgba(8,3,5, 0.2), 2.5em 0em 0 0em rgba(8,3,5, 0.2), 1.75em 1.75em 0 0em rgba(8,3,5, 0.5), 0em 2.5em 0 0em rgba(8,3,5, 0.7), -1.8em 1.8em 0 0em #080305, -2.6em 0em 0 0em rgba(8,3,5, 0.2), -1.8em -1.8em 0 0em rgba(8,3,5, 0.2);
+  }
+  75% {
+    box-shadow: 0em -2.6em 0em 0em rgba(8,3,5, 0.2), 1.8em -1.8em 0 0em rgba(8,3,5, 0.2), 2.5em 0em 0 0em rgba(8,3,5, 0.2), 1.75em 1.75em 0 0em rgba(8,3,5, 0.2), 0em 2.5em 0 0em rgba(8,3,5, 0.5), -1.8em 1.8em 0 0em rgba(8,3,5, 0.7), -2.6em 0em 0 0em #080305, -1.8em -1.8em 0 0em rgba(8,3,5, 0.2);
+  }
+  87.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(8,3,5, 0.2), 1.8em -1.8em 0 0em rgba(8,3,5, 0.2), 2.5em 0em 0 0em rgba(8,3,5, 0.2), 1.75em 1.75em 0 0em rgba(8,3,5, 0.2), 0em 2.5em 0 0em rgba(8,3,5, 0.2), -1.8em 1.8em 0 0em rgba(8,3,5, 0.5), -2.6em 0em 0 0em rgba(8,3,5, 0.7), -1.8em -1.8em 0 0em #080305;
+  }
+}
+@keyframes load5 {
+  0%,
+  100% {
+    box-shadow: 0em -2.6em 0em 0em #080305, 1.8em -1.8em 0 0em rgba(8,3,5, 0.2), 2.5em 0em 0 0em rgba(8,3,5, 0.2), 1.75em 1.75em 0 0em rgba(8,3,5, 0.2), 0em 2.5em 0 0em rgba(8,3,5, 0.2), -1.8em 1.8em 0 0em rgba(8,3,5, 0.2), -2.6em 0em 0 0em rgba(8,3,5, 0.5), -1.8em -1.8em 0 0em rgba(8,3,5, 0.7);
+  }
+  12.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(8,3,5, 0.7), 1.8em -1.8em 0 0em #080305, 2.5em 0em 0 0em rgba(8,3,5, 0.2), 1.75em 1.75em 0 0em rgba(8,3,5, 0.2), 0em 2.5em 0 0em rgba(8,3,5, 0.2), -1.8em 1.8em 0 0em rgba(8,3,5, 0.2), -2.6em 0em 0 0em rgba(8,3,5, 0.2), -1.8em -1.8em 0 0em rgba(8,3,5, 0.5);
+  }
+  25% {
+    box-shadow: 0em -2.6em 0em 0em rgba(8,3,5, 0.5), 1.8em -1.8em 0 0em rgba(8,3,5, 0.7), 2.5em 0em 0 0em #080305, 1.75em 1.75em 0 0em rgba(8,3,5, 0.2), 0em 2.5em 0 0em rgba(8,3,5, 0.2), -1.8em 1.8em 0 0em rgba(8,3,5, 0.2), -2.6em 0em 0 0em rgba(8,3,5, 0.2), -1.8em -1.8em 0 0em rgba(8,3,5, 0.2);
+  }
+  37.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(8,3,5, 0.2), 1.8em -1.8em 0 0em rgba(8,3,5, 0.5), 2.5em 0em 0 0em rgba(8,3,5, 0.7), 1.75em 1.75em 0 0em #080305, 0em 2.5em 0 0em rgba(8,3,5, 0.2), -1.8em 1.8em 0 0em rgba(8,3,5, 0.2), -2.6em 0em 0 0em rgba(8,3,5, 0.2), -1.8em -1.8em 0 0em rgba(8,3,5, 0.2);
+  }
+  50% {
+    box-shadow: 0em -2.6em 0em 0em rgba(8,3,5, 0.2), 1.8em -1.8em 0 0em rgba(8,3,5, 0.2), 2.5em 0em 0 0em rgba(8,3,5, 0.5), 1.75em 1.75em 0 0em rgba(8,3,5, 0.7), 0em 2.5em 0 0em #080305, -1.8em 1.8em 0 0em rgba(8,3,5, 0.2), -2.6em 0em 0 0em rgba(8,3,5, 0.2), -1.8em -1.8em 0 0em rgba(8,3,5, 0.2);
+  }
+  62.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(8,3,5, 0.2), 1.8em -1.8em 0 0em rgba(8,3,5, 0.2), 2.5em 0em 0 0em rgba(8,3,5, 0.2), 1.75em 1.75em 0 0em rgba(8,3,5, 0.5), 0em 2.5em 0 0em rgba(8,3,5, 0.7), -1.8em 1.8em 0 0em #080305, -2.6em 0em 0 0em rgba(8,3,5, 0.2), -1.8em -1.8em 0 0em rgba(8,3,5, 0.2);
+  }
+  75% {
+    box-shadow: 0em -2.6em 0em 0em rgba(8,3,5, 0.2), 1.8em -1.8em 0 0em rgba(8,3,5, 0.2), 2.5em 0em 0 0em rgba(8,3,5, 0.2), 1.75em 1.75em 0 0em rgba(8,3,5, 0.2), 0em 2.5em 0 0em rgba(8,3,5, 0.5), -1.8em 1.8em 0 0em rgba(8,3,5, 0.7), -2.6em 0em 0 0em #080305, -1.8em -1.8em 0 0em rgba(8,3,5, 0.2);
+  }
+  87.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(8,3,5, 0.2), 1.8em -1.8em 0 0em rgba(8,3,5, 0.2), 2.5em 0em 0 0em rgba(8,3,5, 0.2), 1.75em 1.75em 0 0em rgba(8,3,5, 0.2), 0em 2.5em 0 0em rgba(8,3,5, 0.2), -1.8em 1.8em 0 0em rgba(8,3,5, 0.5), -2.6em 0em 0 0em rgba(8,3,5, 0.7), -1.8em -1.8em 0 0em #080305;
+  }
 }
 
-.App-title {
-  font-size: 1.5em;
-}
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+/* end of style for loader */

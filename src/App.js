@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import s from './App.css';
+import './App.css';
 import axios from 'axios';
 import Logo from './components/logo'
 import Avatar from './components/avatar'
@@ -65,22 +65,28 @@ class App extends Component {
   render() {
     const renderSugg = (data) => (data.map((el, index) => (
         <div key={index}>
-          <WrapperContainer wrapperWidth="auto" wrapperHeight="80px" wrapperPosition="relative">
-            <Avatar imgSrc={ el.thumbnail.path } imgExt={ el.thumbnail.extension }></Avatar>
+          <WrapperContainer wrapperWidth="auto" wrapperHeight="80px" wrapperPosition="relative" wrapperBorder="1px solid grey" wrapperBgcolor="rgb(250,250,250)">
+            {/* TODO : Replace the dummy image */}
+            <Avatar imgSrc={ el.thumbnail.path == "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available" ? "https://avatars2.githubusercontent.com/u/12147728?v=4&s=460" : el.thumbnail.path } 
+                    imgExt={ el.thumbnail.extension }></Avatar>
             <CharacterInfo infoName={ el.name } infoDescription={ el.description }></CharacterInfo>
           </WrapperContainer>
       </div>
     )))
     const { data, query, loader } = this.state
-    return <div className={s.test}>
-      <WrapperContainer wrapperWidth="100%" wrapperHeight="100px" wrapperBgcolor="red">
+    return <div>
+      <WrapperContainer wrapperWidth="100%" wrapperHeight="80px" wrapperBgcolor="rgb(229,37,47)" wrapperPosition="relative" >
           <Logo></Logo>
-          <input onChange={ this.handleChange } 
+          <input className="searchBox" onChange={ this.handleChange } 
                  placeholder="Search..." 
                  />
-          { loader ? <span> loading </span> : null }
-          <WrapperContainer wrapperWidth="35%" wrapperHeight="400px" wrapperOverflow="auto">
-            { (data.length == 0 && query !== '') ? <span> Oups </span> : <div>{renderSugg(this.state.data) }</div> }
+                 { loader ? <div className="loader"></div> : null }
+            <WrapperContainer className="suggestResults" wrapperPosition="absolute"
+                              wrapperRight="20%" wrapperTop="100px"
+                              wrapperWidth="350px" wrapperHeight="400px" wrapperOverflow="auto"
+                              wrapperBorder={ (data.length !== 0 && query !== '') ?  "1px solid grey" : "none" } >
+                              {/* TODO: Fix border, show only when there are results or errors */}
+              { (data.length == 0 && query !== '') ? <span> Oups </span> : <div>{renderSugg(this.state.data) }</div> }
             </WrapperContainer>
       </WrapperContainer>
      

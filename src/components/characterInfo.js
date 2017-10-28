@@ -22,7 +22,8 @@ class CharacterInfo extends Component {
         var descriptionStyle = {
             overflow:"auto",
             color:"hotpink",
-            fontSize:"10px"
+            fontSize:"10px",
+            maxHeight:"20px"
         }
         
         return(
