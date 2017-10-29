@@ -23,7 +23,7 @@ class Logo extends Component {
         }
         
         return(
-            <div style = {logoStyle}>
+            <div>
                 <img style = {logoStyle} src= { logo } />
             </div>);
       }

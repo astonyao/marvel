@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
+import MediaQuery from 'react-responsive'
 import Logo from './components/logo'
 import Avatar from './components/avatar'
 import CharacterInfo from './components/characterInfo'
@@ -84,8 +85,10 @@ class App extends Component {
     const { data, query, loader } = this.state
     return <div>
       <WrapperContainer wrapperWidth="100%" wrapperHeight="80px" wrapperBgcolor="rgb(229,37,47)" wrapperPosition="relative" >
+          {/* Desktop View */}
+          <MediaQuery query="(min-width: 500px)">
           <Logo></Logo>
-          <input className="searchBox" onChange={ this.handleChange } 
+          <input id="searchBox" className="searchBox" onChange={ this.handleChange } 
                  placeholder="Search..." 
                  />
                  { loader ? <div className="loader"></div> : null }
@@ -98,6 +101,28 @@ class App extends Component {
               { (data.length == 0 && query !== '') ? <span> Oups </span> : <div>{renderSugg(this.state.data) }</div> }
             </WrapperContainer> : null
             }
+           </MediaQuery> 
+
+
+           {/* Mobile Responsive view */}
+           <MediaQuery query="(max-width: 500px)">
+            <Logo></Logo>
+            <input id="searchBox" className="MobileSearchBox" onChange={ this.handleChange } 
+                  placeholder="Search..." 
+                  />
+                  { loader ? <div className="MobileLoader"></div> : null }
+              { this.state.showOuterWrapper ?
+              <WrapperContainer className="suggestResults" wrapperPosition="absolute"
+                                wrapperLeft="25px" wrapperTop="150px" wrapperMaxHeight="400px"
+                                wrapperWidth="350px" wrapperHeight="auto" wrapperOverflow="auto"
+                                wrapperBorder= "1px solid rgb(216,216,216)" wrapperBorderRadius="6px">
+                                {/* TODO: Fix border, show only when there are results or errors */}
+                { (data.length == 0 && query !== '') ? <span> Oups </span> : <div>{renderSugg(this.state.data) }</div> }
+              </WrapperContainer> : null
+              }
+           </MediaQuery>
+
+
       </WrapperContainer>
      
    

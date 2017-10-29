@@ -8,6 +8,16 @@
   transform: translateY(-50%);
 }
 
+.MobileSearchBox {
+  left: 30px;
+  position: absolute;
+  width: 340px;
+  height: 20px;
+  border-radius: 5px;
+  top: 120px;
+  transform: translateY(-50%);
+}
+
 .suggestResults {
   right: 20%;
   position: relative;
@@ -25,6 +35,21 @@
 .loader {
   right:24%;
   top: 50%;
+  font-size: 3px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  position: absolute;
+  text-indent: -9999em;
+  -webkit-animation: load5 1.1s infinite ease;
+  animation: load5 1.1s infinite ease;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.MobileLoader {
+  left: 350px;
+  top: 120px;
   font-size: 3px;
   width: 5px;
   height: 5px;
