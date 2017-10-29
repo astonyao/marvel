@@ -3,7 +3,7 @@ This project was initialised with [Create React App](https://github.com/facebook
 ![](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
 
 ## API set-up
-Navigate to the api folder, run the marvel api server
+Navigate to the api folder under src ```src/api```, run the marvel api server with
 
 ``` npm start <private key> <public key> ```
 

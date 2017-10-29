@@ -62,7 +62,8 @@ class WrapperContainer extends Component {
             backgroundColor: this.state.backgroundColor
         }
         
-        return <div onMouseEnter={ this.mouseEnterHandler }
+        return <div className="wrapperContainer" 
+                    onMouseEnter={ this.mouseEnterHandler }
                     onMouseLeave={ this.mouseLeaveHandler }
                     onClick = { this.clickHandler }
                     style = { wrapperStyle }>

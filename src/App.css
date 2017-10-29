@@ -18,6 +18,20 @@
   transform: translateY(-50%);
 }
 
+.characterInfo p:first-child:hover {
+  color: rgb(238,36,44);
+}
+
+.wrapperContainer .characterInfo:hover {
+  cursor: default;
+}
+
+@media screen and (max-width:500px) {
+  .characterInfo .characterdesc {
+    display: none;
+  } 
+}
+
 .suggestResults {
   right: 20%;
   position: relative;

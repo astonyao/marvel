@@ -28,29 +28,34 @@ class App extends Component {
     }
     var emptyQuery = this.state.inputValue
     /* Dynamic search result suggestion base on keystroke */
-   if(this.state.timeout != null){
-      clearTimeout(this.state.timeout)
-        this.setState({
-          ...this.state,
-          emptyQuery,
-          data: [],
-          loader: false
-        })
-   }
+    if(this.state.timeout != null){
+        clearTimeout(this.state.timeout)
+          this.setState({
+            ...this.state,
+            emptyQuery,
+            data: [],
+            loader: false
+          })
+    }
     
+    var query = this.state.inputValue
+    this.setState({
+      ...this.state,
+      previousQuery: query,
+      loader: true
+    })
+    /* Prevent sudden change of input field: eg. Select all and delete */
+    if(this.state.inputValue == ''){
+      query = this.state.previousQuery
+      this.state.showOuterWrapper = false
+    }
+    this.callApi(query)
+    this.state.previousQuery = this.state.query
+  }
+
+  callApi = (query) => {
+    //TODO manage errors
     this.state.timeout = setTimeout(() => {
-      var query = this.state.inputValue
-      this.setState({
-        ...this.state,
-        previousQuery: query,
-        loader: true
-      })
-      /* Prevent sudden change of input field: eg. Select all and delete */
-      if(this.state.inputValue == ''){
-        query = this.state.previousQuery
-        this.state.showOuterWrapper = false
-      }
-      //TODO manage errors
       axios.get(`http://localhost:1111/characters?nameStartsWith=${query}`)
       .then((response) => {
         if(this.state.inputValue==''){
@@ -67,10 +72,9 @@ class App extends Component {
           loader: false
         })
       });
-  }, 500);
-  this.state.previousQuery = this.state.query
+    }, 500);
   }
-
+  
   render() {
     const renderSugg = (data) => (data.map((el, index) => (
         <div key={index}>
@@ -125,8 +129,6 @@ class App extends Component {
               </WrapperContainer> : null
               }
            </MediaQuery>
-
-
       </WrapperContainer>
      
    

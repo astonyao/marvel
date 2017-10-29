@@ -34,9 +34,9 @@ class CharacterInfo extends Component {
         }
         
         return(
-            <div style = {charInfoStyle}>
+            <div className="characterInfo" style = {charInfoStyle}>
                 <p style = {(this.state.description) ? null : onlyName }>{ this.state.name }</p>
-                <p style = {(this.state.description) ? descriptionStyle : hidden} >{ this.state.description }</p>
+                <p className="characterdesc" style = {(this.state.description) ? descriptionStyle : hidden} >{ this.state.description }</p>
             </div>);
       }
 }
