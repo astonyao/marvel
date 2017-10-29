@@ -22,7 +22,10 @@ class Avatar extends Component {
         var imageStyle = {
             width: "50px",
             height: "50px",
-            borderRadius: "35px"
+            borderRadius: "35px",
+            position: "absolute",
+            top: "15px",
+            left: "25px"
         }
         
         return(

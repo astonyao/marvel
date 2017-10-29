@@ -14,7 +14,8 @@ class WrapperContainer extends Component {
           border: this.props.wrapperBorder,
           display: this.props.wrapperDisplay,
           overflow: this.props.wrapperOverflow,
-          backgroundColor: this.props.wrapperBgcolor
+          backgroundColor: this.props.wrapperBgcolor,
+          borderRadius: this.props.wrapperBorderRadius
         };
     }
 
@@ -32,6 +33,7 @@ class WrapperContainer extends Component {
             maxHeight: this.state.maxHeight,
             position: this.state.position,
             border: this.state.border,
+            borderRadius: this.state.borderRadius,
             overflow: this.state.overflow,
             backgroundColor: this.state.backgroundColor
         }

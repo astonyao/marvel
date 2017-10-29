@@ -73,7 +73,7 @@ class App extends Component {
   render() {
     const renderSugg = (data) => (data.map((el, index) => (
         <div key={index}>
-          <WrapperContainer wrapperWidth="auto" wrapperHeight="80px" wrapperPosition="relative" wrapperBorder="1px solid grey" wrapperBgcolor="rgb(250,250,250)">
+          <WrapperContainer wrapperWidth="auto" wrapperHeight="80px" wrapperPosition="relative" wrapperBorder="1px solid rgb(216,216,216)" wrapperBgcolor="rgb(250,250,250)">
             {/* TODO : Replace the dummy image */}
             <Avatar imgSrc={ el.thumbnail.path == "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available" ? "https://avatars2.githubusercontent.com/u/12147728?v=4&s=460" : el.thumbnail.path } 
                     imgExt={ el.thumbnail.extension }></Avatar>
@@ -91,9 +91,9 @@ class App extends Component {
                  { loader ? <div className="loader"></div> : null }
             { this.state.showOuterWrapper ?
             <WrapperContainer className="suggestResults" wrapperPosition="absolute"
-                              wrapperRight="20%" wrapperTop="100px"
-                              wrapperWidth="350px" wrapperHeight="400px" wrapperOverflow="auto"
-                              wrapperBorder= "1px solid green" >
+                              wrapperRight="22%" wrapperTop="60px" wrapperMaxHeight="400px"
+                              wrapperWidth="350px" wrapperHeight="auto" wrapperOverflow="auto"
+                              wrapperBorder= "1px solid rgb(216,216,216)" wrapperBorderRadius="6px">
                               {/* TODO: Fix border, show only when there are results or errors */}
               { (data.length == 0 && query !== '') ? <span> Oups </span> : <div>{renderSugg(this.state.data) }</div> }
             </WrapperContainer> : null

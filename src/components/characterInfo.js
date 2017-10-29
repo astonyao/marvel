@@ -15,22 +15,32 @@ class CharacterInfo extends Component {
 
     render() {
         var charInfoStyle = {
-            width: "60%",
-            float:"right"
+            width: "65%",
+            float:"right",
+            paddingRight: "10px",
+            color:"rgb(90,100,128)"
         }
 
         var descriptionStyle = {
             overflow:"auto",
-            color:"hotpink",
+            color:"rgb(137,145,165)",
             fontSize:"10px",
-            maxHeight:"20px"
+            maxHeight:"24px",
+            marginTop:"-12px"
+        }
+
+        var hidden = {
+            display: "none"
+        }
+
+        var onlyName ={
+            marginTop: "30px"
         }
         
         return(
             <div style = {charInfoStyle}>
-                {/* <img style = {imageStyle} src= { this.state.src + '.' + this.state.extension } /> */}
-                <p>{ this.state.name }</p>
-                <p style = {descriptionStyle} >{ this.state.description }</p>
+                <p style = {(this.state.description) ? null : onlyName }>{ this.state.name }</p>
+                <p style = {(this.state.description) ? descriptionStyle : hidden} >{ this.state.description }</p>
             </div>);
       }
 }
