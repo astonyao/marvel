@@ -15,6 +15,7 @@ class App extends Component {
       data: [],
       inputValue: '',
       timeout: null,
+      showOuterWrapper: false,
       loader: false
     };
   }
@@ -46,15 +47,22 @@ class App extends Component {
       /* Prevent sudden change of input field: eg. Select all and delete */
       if(this.state.inputValue == ''){
         query = this.state.previousQuery
+        this.state.showOuterWrapper = false
       }
       //TODO manage errors
       axios.get(`http://localhost:1111/characters?nameStartsWith=${query}`)
       .then((response) => {
+        if(this.state.inputValue==''){
+          this.state.showOuterWrapper = false
+        }else{
+          this.state.showOuterWrapper = true
+        }
         // console.log(response);
         this.setState({
           ...this.state,
           query,
           data: (response.data.results || []),
+          // showOuterWrapper: true,
           loader: false
         })
       });
@@ -81,13 +89,15 @@ class App extends Component {
                  placeholder="Search..." 
                  />
                  { loader ? <div className="loader"></div> : null }
+            { this.state.showOuterWrapper ?
             <WrapperContainer className="suggestResults" wrapperPosition="absolute"
                               wrapperRight="20%" wrapperTop="100px"
                               wrapperWidth="350px" wrapperHeight="400px" wrapperOverflow="auto"
-                              wrapperBorder={ (data.length !== 0 && query !== '') ?  "1px solid grey" : "none" } >
+                              wrapperBorder= "1px solid green" >
                               {/* TODO: Fix border, show only when there are results or errors */}
               { (data.length == 0 && query !== '') ? <span> Oups </span> : <div>{renderSugg(this.state.data) }</div> }
-            </WrapperContainer>
+            </WrapperContainer> : null
+            }
       </WrapperContainer>
      
    

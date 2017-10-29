@@ -12,6 +12,7 @@
   right: 20%;
   position: relative;
   top: 120px;
+  border: 1px solid blue;
 }
 
 /* .loaderStyle {
