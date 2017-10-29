@@ -8,6 +8,7 @@
     "react-responsive": "^3.0.0"
   },
   "devDependencies": {
+    "axios": "^0.17.0",
     "react-scripts": "1.0.14"
   },
   "scripts": {
