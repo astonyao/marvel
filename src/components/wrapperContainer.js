@@ -15,12 +15,36 @@ class WrapperContainer extends Component {
           display: this.props.wrapperDisplay,
           overflow: this.props.wrapperOverflow,
           backgroundColor: this.props.wrapperBgcolor,
-          borderRadius: this.props.wrapperBorderRadius
+          borderRadius: this.props.wrapperBorderRadius,
+          hoverable: this.props.wrapperHoverable,
+          clickable: this.props.wrapperClickable,
+          data: this.props.wrapperData
         };
     }
 
-    componentDidMount(){
-        console.log("WrapperContainer mounted");
+    mouseEnterHandler = (event) => {
+        if(this.state.hoverable){
+            this.setState({
+                backgroundColor: "rgb(223,212,212)"
+              })
+        }
+       
+    }
+
+    mouseLeaveHandler = (event) => {
+        if(this.state.hoverable){
+            this.setState({
+                backgroundColor: "rgb(250,250,250)"
+              })    
+        }
+    }
+
+    // Log out hero's name in console
+    clickHandler = (event) => {
+        if(this.state.clickable){
+            console.log(this.state.data);
+
+        }
     }
 
     render() {
@@ -38,7 +62,10 @@ class WrapperContainer extends Component {
             backgroundColor: this.state.backgroundColor
         }
         
-        return <div style = { wrapperStyle }>
+        return <div onMouseEnter={ this.mouseEnterHandler }
+                    onMouseLeave={ this.mouseLeaveHandler }
+                    onClick = { this.clickHandler }
+                    style = { wrapperStyle }>
             {this.props.children}
         </div>;
       }

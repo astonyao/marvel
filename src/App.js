@@ -74,7 +74,11 @@ class App extends Component {
   render() {
     const renderSugg = (data) => (data.map((el, index) => (
         <div key={index}>
-          <WrapperContainer wrapperWidth="auto" wrapperHeight="80px" wrapperPosition="relative" wrapperBorder="1px solid rgb(216,216,216)" wrapperBgcolor="rgb(250,250,250)">
+          <WrapperContainer 
+              wrapperHoverable = 'true' wrapperClickable = 'true' wrapperData = { el.name }
+              wrapperWidth="auto" wrapperHeight="80px" wrapperPosition="relative" 
+              wrapperBorder="1px solid rgb(216,216,216)" wrapperBgcolor="rgb(250,250,250)"
+           >
             {/* TODO : Replace the dummy image */}
             <Avatar imgSrc={ el.thumbnail.path == "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available" ? "https://avatars2.githubusercontent.com/u/12147728?v=4&s=460" : el.thumbnail.path } 
                     imgExt={ el.thumbnail.extension }></Avatar>

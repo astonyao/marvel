@@ -9,10 +9,6 @@ class CharacterInfo extends Component {
         };
     }
 
-    componentDidMount(){
-        console.log("CharacterInfo mounted");
-    }
-
     render() {
         var charInfoStyle = {
             width: "65%",

@@ -9,10 +9,6 @@ class Logo extends Component {
         };
     }
 
-    componentDidMount(){
-        console.log("Logo mounted");
-    }
-
     render() {
         var logoStyle = {
             width: "100px",

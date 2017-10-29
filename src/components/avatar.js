@@ -9,10 +9,6 @@ class Avatar extends Component {
         };
     }
 
-    componentDidMount(){
-        console.log("Avatar mounted");
-    }
-
     render() {
         var avatarStyle = {
             width:"30%",
