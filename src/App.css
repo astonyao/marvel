@@ -36,7 +36,18 @@
   right: 20%;
   position: relative;
   top: 120px;
-  border: 1px solid blue;
+}
+
+.noResultsStyle {
+  background-color: rgb(250,250,250);
+  position: fixed;
+  text-align: center;
+}
+.noResultsStyle h3{
+  color: rgb(241,95,99);
+}
+.noResultsStyle p{
+  color: rgb(90,102,128);
 }
 
 /* .loaderStyle {

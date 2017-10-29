@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import MediaQuery from 'react-responsive'
+import NoResults from './components/NoResults'
 import Logo from './components/logo'
 import Avatar from './components/avatar'
 import CharacterInfo from './components/characterInfo'
@@ -24,7 +25,9 @@ class App extends Component {
   handleChange = (event) => {
     this.state.inputValue = event.target.value
     if(this.state.query != ''){
-      this.state.previousQuery = this.state.query
+      this.setState({
+        previousQuery: query
+      })
     }
     var emptyQuery = this.state.inputValue
     /* Dynamic search result suggestion base on keystroke */
@@ -46,11 +49,15 @@ class App extends Component {
     })
     /* Prevent sudden change of input field: eg. Select all and delete */
     if(this.state.inputValue == ''){
-      query = this.state.previousQuery
-      this.state.showOuterWrapper = false
+      this.setState({
+        query: this.state.previousQuery,
+        showOuterWrapper: false
+      })
     }
+    this.setState({
+      previousQuery: query
+    })
     this.callApi(query)
-    this.state.previousQuery = this.state.query
   }
 
   callApi = (query) => {
@@ -59,9 +66,13 @@ class App extends Component {
       axios.get(`http://localhost:1111/characters?nameStartsWith=${query}`)
       .then((response) => {
         if(this.state.inputValue==''){
-          this.state.showOuterWrapper = false
+          this.setState({
+            showOuterWrapper: false
+          })
         }else{
-          this.state.showOuterWrapper = true
+          this.setState({
+            showOuterWrapper: true
+          })
         }
         // console.log(response);
         this.setState({
@@ -84,7 +95,7 @@ class App extends Component {
               wrapperBorder="1px solid rgb(216,216,216)" wrapperBgcolor="rgb(250,250,250)"
            >
             {/* TODO : Replace the dummy image */}
-            <Avatar imgSrc={ el.thumbnail.path == "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available" ? "https://avatars2.githubusercontent.com/u/12147728?v=4&s=460" : el.thumbnail.path } 
+            <Avatar imgSrc={ el.thumbnail.path == "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available" ? "https://cdn.browshot.com/static/images/not-found" : el.thumbnail.path } 
                     imgExt={ el.thumbnail.extension }></Avatar>
             <CharacterInfo infoName={ el.name } infoDescription={ el.description }></CharacterInfo>
           </WrapperContainer>
@@ -106,7 +117,7 @@ class App extends Component {
                               wrapperWidth="350px" wrapperHeight="auto" wrapperOverflow="auto"
                               wrapperBorder= "1px solid rgb(216,216,216)" wrapperBorderRadius="6px">
                               {/* TODO: Fix border, show only when there are results or errors */}
-              { (data.length == 0 && query !== '') ? <span> Oups </span> : <div>{renderSugg(this.state.data) }</div> }
+              { (data.length == 0 && query !== '') ? <NoResults resultSearchTerm={query}></NoResults> : <div>{renderSugg(this.state.data) }</div> }
             </WrapperContainer> : null
             }
            </MediaQuery> 
@@ -125,7 +136,7 @@ class App extends Component {
                                 wrapperWidth="350px" wrapperHeight="auto" wrapperOverflow="auto"
                                 wrapperBorder= "1px solid rgb(216,216,216)" wrapperBorderRadius="6px">
                                 {/* TODO: Fix border, show only when there are results or errors */}
-                { (data.length == 0 && query !== '') ? <span> Oups </span> : <div>{renderSugg(this.state.data) }</div> }
+                { (data.length == 0 && query !== '') ? <NoResults resultSearchTerm={query}></NoResults> : <div>{renderSugg(this.state.data) }</div> }
               </WrapperContainer> : null
               }
            </MediaQuery>
