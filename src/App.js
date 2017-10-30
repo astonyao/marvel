@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import MediaQuery from 'react-responsive'
-import NoResults from './components/NoResults'
-import Logo from './components/logo'
-import Avatar from './components/avatar'
-import CharacterInfo from './components/characterInfo'
-import WrapperContainer from './components/wrapperContainer'
+import NoResults from './components/NoResults.js'
+import Logo from './components/Logo.js'
+import Avatar from './components/Avatar.js'
+import CharacterInfo from './components/CharacterInfo.js'
+import WrapperContainer from './components/WrapperContainer.js'
 
 class App extends Component {
   constructor(props) {

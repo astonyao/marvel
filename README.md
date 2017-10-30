@@ -32,3 +32,9 @@ If you are unable to run the test cases, try clearing the npm cache
 ``` rm -rf node_modules ```
 
 ``` npm i ```
+
+
+## Future work
+* Connect the app via production Marvel API, so that users don't have to set up a local host before running the app.
+* Better sorting algorithm for search results (eg. base on popularity or year)
+* Hosting the app on server.
