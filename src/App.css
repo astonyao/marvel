@@ -26,12 +26,6 @@
   cursor: default;
 }
 
-@media screen and (max-width:500px) {
-  .characterInfo .characterdesc {
-    display: none;
-  } 
-}
-
 .suggestResults {
   right: 20%;
   position: relative;
@@ -50,6 +44,31 @@
   color: rgb(90,102,128);
 }
 
+@media screen and (max-width:500px) {
+  .characterInfo .characterdesc {
+    display: none;
+  } 
+  .noResultsStyle {
+    width: inherit!important;
+  }
+  .marvelLogo img{
+    width: 149px!important;
+    margin-left: 30%!important;
+  }
+  .menuIcon {
+    display: inline-block;
+    margin-left: 25px;
+    margin-top: 25px;
+
+  }
+  .menuIcon div{
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 3px 0;
+    border-radius: 20px;
+  }
+}
 /* .loaderStyle {
   position: absolute;
   right:24%;

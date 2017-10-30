@@ -19,8 +19,8 @@ class Logo extends Component {
         }
         
         return(
-            <div>
-                <img style = {logoStyle} src= { logo } />
+            <div className="marvelLogo">
+                <img style = {logoStyle} src= { logo } alt="Marvel Logo"/>
             </div>);
       }
 }

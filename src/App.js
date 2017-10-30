@@ -125,6 +125,9 @@ class App extends Component {
 
            {/* Mobile Responsive view */}
            <MediaQuery query="(max-width: 500px)">
+            <div className="menuIcon">
+              <div></div><div></div><div></div>
+            </div>
             <Logo></Logo>
             <input id="searchBox" className="MobileSearchBox" onChange={ this.handleChange } 
                   placeholder="Search..." 
