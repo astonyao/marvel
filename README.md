@@ -1,6 +1,6 @@
 This project was initialised with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-![](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![](https://media.giphy.com/media/pAUg2l9WEV3QA/giphy.gif)
 
 ## API set-up
 Navigate to the api folder under src ```src/api```, run the marvel api server with
@@ -21,4 +21,14 @@ and then
 
 ``` npm start ```
 
+## Testing
 
+You can run tests by running
+
+``` npm test ```
+
+If you are unable to run the test cases, try clearing the npm cache 
+
+``` rm -rf node_modules ```
+
+``` npm i ```
