@@ -17,7 +17,7 @@ class NoResults extends Component {
         return(
             <div className="noResultsStyle" style = {noResultsStyle}>
                 <h3>Oh No!</h3>
-                <p>No results found for "{this.state.searchTerm}"</p>
+                <p>No results found <br></br> for "{this.state.searchTerm}"</p>
             </div>);
       }
 }

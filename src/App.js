@@ -115,7 +115,7 @@ class App extends Component {
             <WrapperContainer className="suggestResults" wrapperPosition="absolute"
                               wrapperRight="22%" wrapperTop="60px" wrapperMaxHeight="400px"
                               wrapperWidth="350px" wrapperHeight="auto" wrapperOverflow="auto"
-                              wrapperBorder= "1px solid rgb(216,216,216)" wrapperBorderRadius="6px">
+                              wrapperBorderRadius="6px">
                               {/* TODO: Fix border, show only when there are results or errors */}
               { (data.length == 0 && query !== '') ? <NoResults resultSearchTerm={query}></NoResults> : <div>{renderSugg(this.state.data) }</div> }
             </WrapperContainer> : null
@@ -137,7 +137,7 @@ class App extends Component {
               <WrapperContainer className="suggestResults" wrapperPosition="absolute"
                                 wrapperLeft="25px" wrapperTop="150px" wrapperMaxHeight="400px"
                                 wrapperWidth="350px" wrapperHeight="auto" wrapperOverflow="auto"
-                                wrapperBorder= "1px solid rgb(216,216,216)" wrapperBorderRadius="6px">
+                                wrapperBorderRadius="6px">
                                 {/* TODO: Fix border, show only when there are results or errors */}
                 { (data.length == 0 && query !== '') ? <NoResults resultSearchTerm={query}></NoResults> : <div>{renderSugg(this.state.data) }</div> }
               </WrapperContainer> : null
