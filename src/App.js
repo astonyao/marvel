@@ -33,14 +33,15 @@ class App extends Component {
         previousQuery: query
       })
     }
-    var emptyQuery = this.state.inputValue
 
+    var emptyQuery = ""
     /* Dynamic search result suggestion base on keystroke */
     if(this.state.timeout != null){
         clearTimeout(this.state.timeout)
           this.setState({
             ...this.state,
             emptyQuery,
+            query: emptyQuery,
             data: [],
             loader: false,
             userTyping: true
