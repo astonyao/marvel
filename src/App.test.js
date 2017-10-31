@@ -21,12 +21,16 @@ it('renders without crashing', () => {
 it('changing the search box will trigger a call to api', () =>{
   const wrapper = wrapStubCallApi()
   wrapper.find(".searchBox").simulate('change', { target: { value: 'text' }})
-  expect(callApi).toBeCalled()
+  setTimeout(() => {
+    expect(callApi).toBeCalled()
+  }, 1500);
 })
 
 it('the loader is showing during a call to api', () =>{
   const wrapper = wrap()
-  expect(wrapper.state().loader).toBe(false)
-  wrapper.find(".searchBox").simulate('change', { target: { value: 'text' }})
-  expect(wrapper.state().loader).toBe(true)
+  setTimeout(() => {
+    expect(wrapper.state().loader).toBe(false)
+    wrapper.find(".searchBox").simulate('change', { target: { value: 'text' }})
+    expect(wrapper.state().loader).toBe(true)
+  }, 1500);
 })
