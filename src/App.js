@@ -28,7 +28,7 @@ class App extends Component {
     this.state.inputValue = event.target.value
     var query = this.state.inputValue
     this.state.userTyping = true
-    if(this.state.query != ''){
+    if(this.state.query !== ''){
       this.setState({
         previousQuery: query
       })
@@ -46,30 +46,31 @@ class App extends Component {
             userTyping: true
           })
     }
+
     this.state.timeout = setTimeout(() => {
-    query = this.state.inputValue
-    this.setState({
-      ...this.state,
-      previousQuery: query,
-      loader: true
-    })
-
-    /* Prevent sudden change of input field: eg. Select all and delete */
-    if(this.state.inputValue == ''){
+      query = this.state.inputValue
       this.setState({
-        query: this.state.previousQuery,
-        showOuterWrapper: false
+        ...this.state,
+        previousQuery: query,
+        loader: true
       })
-    }
-    this.setState({
-      previousQuery: query,
-      userTyping: false
-    })
 
-    /* Send request to API server */
-    this.callApi(query)
-     
-  }, 500);
+      /* Prevent sudden change of input field: eg. Select all and delete */
+      if(this.state.inputValue === ''){
+        this.setState({
+          query: this.state.previousQuery,
+          showOuterWrapper: false
+        })
+      }
+      this.setState({
+        previousQuery: query,
+        userTyping: false
+      })
+
+      /* Send request to API server */
+      this.callApi(query)
+  
+    }, 500);
   }
 
   callApi = (query) => {
@@ -108,7 +109,7 @@ class App extends Component {
               wrapperWidth="auto" wrapperHeight="80px" wrapperPosition="relative" 
               wrapperBorder="1px solid rgb(216,216,216)" wrapperBgcolor="rgb(250,250,250)">
             <Avatar imgSrc={ el.thumbnail.path === "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available" ? "https://cdn.browshot.com/static/images/not-found" : el.thumbnail.path } 
-                    imgExt={ el.thumbnail.extension }></Avatar>
+                    imgExt={ el.thumbnail.extension } altText= { el.name } ></Avatar>
             <CharacterInfo infoName={ el.name } infoDescription={ el.description }></CharacterInfo>
           </WrapperContainer>
       </div>

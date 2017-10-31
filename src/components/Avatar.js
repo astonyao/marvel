@@ -5,7 +5,8 @@ class Avatar extends Component {
         super(props);
         this.state = {
           src: this.props.imgSrc,
-          extension: this.props.imgExt
+          extension: this.props.imgExt,
+          alt: this.props.altText
         };
     }
 
@@ -26,7 +27,7 @@ class Avatar extends Component {
         
         return(
             <div style = {avatarStyle}>
-                <img style = {imageStyle} src= { this.state.src + '.' + this.state.extension } />
+                <img style = {imageStyle} src= { this.state.src + '.' + this.state.extension } alt= { this.state.alt} />
             </div>);
       }
 }
