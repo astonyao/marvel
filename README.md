@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is a search tool built with [React](https://react.org) allows you to retrieve characters via [Marvel api](https://developer.marvel.com/docs#!/public/getCreatorCollection_get_0).
+This is a search tool built with [React](https://reactjs.org/) allows you to retrieve characters via [Marvel api](https://developer.marvel.com/docs#!/public/getCreatorCollection_get_0).
 
 ### Desktop view
 ![app gif](https://raw.githubusercontent.com/astonyao/marvel/master/screenshots/marvel-1.gif)
